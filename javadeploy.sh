@@ -6,8 +6,8 @@ if [ -z "$status" ];
         then
         echo "Application is NOT running & we're starting now";
         sleep 30
-        chmod 755 /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar
-        java -jar /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar &
+        chmod 755 $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar
+        java -jar $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar &
         if [[ "$?" == 0 ]]; then echo "Application has been started successfully"; exit 0; else echo "Application deployment failed"; exit 1; fi
 
 else
@@ -17,7 +17,7 @@ else
                 else echo "Failed to stop previous instance of the Application"; exit 1;
         fi
         sleep 30
-        chmod 755 /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar
-        java -jar /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar &
+        chmod 755 $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar
+        java -jar $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar &
         if [[ "$?" == 0 ]]; then echo "Application has been deployed successfully"; exit 0; else echo "Application deployment failed"; exit 1; fi
 fi
