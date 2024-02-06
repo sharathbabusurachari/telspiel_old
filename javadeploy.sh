@@ -5,6 +5,7 @@ status=`ps -ef | grep telspiel | grep jar | awk '{print $2}'`
 if [ -z "$status" ];
         then
         echo "Application is NOT running & we're starting now";
+        sleep 30
         java -jar /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar &
         if [[ "$?" == 0 ]]; then echo "Application has been started successfully"; exit 0; else echo "Application deployment failed"; exit 1; fi
 
