@@ -20,5 +20,6 @@ else
         sleep 30
         chmod 755 $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar
         java -jar $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar &
-        if [[ "$?" == 0 ]]; then echo "Application has been deployed successfully"; exit 0; else echo "Application deployment failed"; exit 1; fi
+        if [[ "$?" == 0 ]]; then echo "Application has been deployed successfully with PID :"; echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`; exit 0; 
+        else echo "Application deployment failed"; exit 1; fi
 fi
