@@ -6,7 +6,7 @@ if [ -z "$status" ];
         then
         echo "Application is NOT running & we're starting now...";
         chmod 755 /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar;
-        java -jar /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar &
+        nohup java -jar /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar &
         sleep 30;
         echo "Done..";
         if [[ "$?" == 0 ]]; then echo "Application has been started successfully with PID :"; echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`; 
@@ -19,7 +19,7 @@ else
                 else echo "Failed to stop previous instance of the Application"; exit 1;
         fi
         chmod 755 /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar;
-        java -jar /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar &
+        nohup java -jar /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar &
         sleep 30;
         echo "Done..";
         if [[ "$?" == 0 ]]; then echo "Application has been deployed successfully with PID :"; echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`;
