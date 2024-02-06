@@ -26,5 +26,5 @@ fi
 echo "Sleeping 30s before exit..";
  sleep 30;
 echo "PID :";
-echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`;
+fg `ps -ef | grep telspiel | grep jar | awk '{print $2}'`;
 exit 0
