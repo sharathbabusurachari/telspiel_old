@@ -9,7 +9,7 @@ if [ -z "$status" ];
         java -jar /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar &
         sleep 30;
         echo "Done..";
-        if [[ "$?" == 0 ]]; then echo "Application has been started successfully with PID :"; echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`; exit 0; 
+        if [[ "$?" == 0 ]]; then echo "Application has been started successfully with PID :"; echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`; 
         else echo "Application deployment failed"; exit 1; fi
 
 else
@@ -22,6 +22,6 @@ else
         java -jar /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar &
         sleep 30;
         echo "Done..";
-        if [[ "$?" == 0 ]]; then echo "Application has been deployed successfully with PID :"; echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`; exit 0; 
+        if [[ "$?" == 0 ]]; then echo "Application has been deployed successfully with PID :"; echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`;
         else echo "Application deployment failed"; exit 1; fi
 fi
