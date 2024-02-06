@@ -25,3 +25,4 @@ else
         if [[ "$?" == 0 ]]; then echo "Application has been deployed successfully with PID :"; echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`;
         else echo "Application deployment failed"; exit 1; fi
 fi
+exit 0
