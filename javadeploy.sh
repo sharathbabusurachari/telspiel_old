@@ -14,6 +14,7 @@ else
         if [[ "$?" == 0 ]]; then echo "Previous instance of the Application has been stopped successfully";
                 else echo "Failed to stop previous instance of the Application"; exit 1;
         fi
+        sleep 30
         java -jar /var/lib/jenkins/workspace/01_Java_CICD/target/telspiel-0.0.1-SNAPSHOT.jar &
         if [[ "$?" == 0 ]]; then echo "Application has been deployed successfully"; exit 0; else echo "Application deployment failed"; exit 1; fi
 fi
