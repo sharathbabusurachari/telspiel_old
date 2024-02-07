@@ -24,7 +24,7 @@ else
         else echo "Application deployment failed"; exit 1; fi
 fi
 echo "Sleeping 30s before exit..";
- sleep 30;
+ sleep 300;
 echo "PID :";
 echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`;
 exit 0
