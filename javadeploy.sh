@@ -28,3 +28,4 @@ echo "Sleeping 300s before exit..";
 echo "PID :";
 echo `ps -ef | grep telspiel | grep jar | awk '{print $2}'`;
 exit 0
+
