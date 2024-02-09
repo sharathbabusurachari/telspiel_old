@@ -41,14 +41,14 @@ pipeline {
             junit(
                 allowEmptyResults:true,
             testResults: '*test-reports/.xml'
-            sh '''
-            status=`ps -ef | grep telspiel | grep jar | awk '{print $2}'`
-                            if [ -z "$status" ]; then
-                            echo "deploying in post.."
-                            nohup java -jar $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar &
-                            fi
-             '''
             )
+            sh '''
+                        status=`ps -ef | grep telspiel | grep jar | awk '{print $2}'`
+                                        if [ -z "$status" ]; then
+                                        echo "deploying in post.."
+                                        nohup java -jar $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar &
+                                        fi
+                         '''
         }
     }
     
