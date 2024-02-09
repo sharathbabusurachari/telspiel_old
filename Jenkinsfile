@@ -23,10 +23,7 @@ pipeline {
                 chmod 755 $WORKSPACE/javadeploy.sh;
                 bash $WORKSPACE/javadeploy.sh;
 
-                status=`ps -ef | grep telspiel | grep jar | awk '{print $2}'`
-                if [ -z "$status" ]; then
-                nohup java -jar $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar &
-                fi
+
 
                 #echo "${status}"
                 
@@ -39,13 +36,20 @@ pipeline {
                 }
             }
 
-    /* post {
+    post {
         always {
             junit(
                 allowEmptyResults:true,
             testResults: '*test-reports/.xml'
+            sh '''
+            status=`ps -ef | grep telspiel | grep jar | awk '{print $2}'`
+                            if [ -z "$status" ]; then
+                            echo "deploying in post.."
+                            nohup java -jar $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar &
+                            fi
+             '''
             )
         }
-    }*/
+    }
     
 }
