@@ -22,16 +22,12 @@ pipeline {
                 sh '''
                 chmod 755 $WORKSPACE/javadeploy.sh;
                 bash $WORKSPACE/javadeploy.sh;
+                status=`ps -ef | grep telspiel | grep jar | awk '{print $2}'`
 
-
-
-                #echo "${status}"
-                
-                #if (status == 0) {
-                #    echo "Deployment is Successful..."
-                #} else {
-                #    echo "Deployment is Failed..."
-                 #   sh "exit 1"
+                if [ -z "$status" ];
+                        then echo "Deployment is unsuccessful...";
+                        else echo "Deployment is Successful...";
+                fi
                 '''}
                 }
             }
@@ -43,12 +39,8 @@ pipeline {
             testResults: '*test-reports/.xml'
             )
             sh '''
-                        status=`ps -ef | grep telspiel | grep jar | awk '{print $2}'`
-                                        if [ -z "$status" ]; then
-                                        echo "deploying in post.."
-                                        nohup java -jar $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar &
-                                        fi
-                         '''
+            sleep 300
+            '''
         }
     }
     
