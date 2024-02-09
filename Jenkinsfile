@@ -22,13 +22,14 @@ pipeline {
                 sh '''
                 chmod 755 $WORKSPACE/javadeploy.sh;
                 bash $WORKSPACE/javadeploy.sh;
-                /*echo "${status}"
+
+                #echo "${status}"
                 
-                if (status == 0) {
-                    echo "Deployment is Successful..."
-                } else {
-                    echo "Deployment is Failed..."
-                    sh "exit 1"*/
+                #if (status == 0) {
+                #    echo "Deployment is Successful..."
+                #} else {
+                #    echo "Deployment is Failed..."
+                 #   sh "exit 1"
                 '''}
                 }
             }
