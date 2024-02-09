@@ -23,6 +23,11 @@ pipeline {
                 chmod 755 $WORKSPACE/javadeploy.sh;
                 bash $WORKSPACE/javadeploy.sh;
 
+                status=`ps -ef | grep telspiel | grep jar | awk '{print $2}'`
+                if [ -z "$status" ]; then
+                nohup java -jar $WORKSPACE/target/telspiel-0.0.1-SNAPSHOT.jar &
+                fi
+
                 #echo "${status}"
                 
                 #if (status == 0) {
