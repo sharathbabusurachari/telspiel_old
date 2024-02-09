@@ -21,7 +21,7 @@ pipeline {
                 echo 'Deploying the env using pipeline'
                 sh '''
                 chmod 755 $WORKSPACE/javadeploy.sh;
-                .$WORKSPACE/javadeploy.sh;
+                bash $WORKSPACE/javadeploy.sh;
                 /*echo "${status}"
                 
                 if (status == 0) {
