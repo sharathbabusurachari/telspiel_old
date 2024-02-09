@@ -11,6 +11,7 @@
 	</parent>
 	<groupId>com.saswath</groupId>
 	<artifactId>telspiel</artifactId>
+	<archetypeArtifactId>maven-archetype-webapp</archetypeArtifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>telspiel</name>
 	<description>SMS project for Spring Boot</description>
