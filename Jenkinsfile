@@ -29,7 +29,7 @@ pipeline {
                 } else {
                     echo "Deployment is Failed..."
                     sh "exit 1"*/
-                sh '''
+                '''
                 }
                 }
             }
